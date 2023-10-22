@@ -37,7 +37,7 @@ public class App {
     }
     
     private void init() throws Exception{
-        FileInputStream refreshToken = new FileInputStream("d:/dvtools/du_smart_bus/dusmartbusfirebase.json");//json파일 경로
+        FileInputStream refreshToken = new FileInputStream("dusmartbusfirebase.json");//json파일 경로
 
         FirebaseOptions options = FirebaseOptions.builder()
             .setCredentials(GoogleCredentials.fromStream(refreshToken))
@@ -59,7 +59,7 @@ public class App {
         for (QueryDocumentSnapshot document : documents) {
             System.out.println("User: " + document.getId());
             System.out.println("name: " + document.getString("name"));
-            System.out.println("id: " + document.getLong("numbers"));  
+            System.out.println("id: " + document.get("numbers"));
             System.out.println("id: " + document.getString("id"));
             System.out.println("booleans: " + document.getBoolean("booleans"));
         }
